@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head> 
+<title>FAST 'N FRESH </title>
+<link  rel="stylesheet" type="text/css" href= "css/style.css">
+<link rel="stylesheet" type="text/css" href="">
+<body>
+	<header>
+		<div class="main"> 
+			<div class="logo">
+				<img src="logo1.png"> 
+				
+			</div>
+		<ul>
+			<li class="active"><a href="#">Home</a> </li>
+			<li> 
+				<a href="#">Services</a> 
+				<ul>
+					<li><a href="#">Food</a> </li>
+			        <li><a href="#">Beverages</a> </li>
+				</ul>
+			</li>
+			<li><a href="#">Gallery</a> </li>
+			<li><a href="#">About</a> </li>
+			<li><a href="#">Contact</a> </li>
+
+		</ul> 
+		</div>
+		<div class="title">
+			 <h1>FAST 'N FRESH</h1>
+		</div>
+		<div class="button">
+			<a href="#" class="btn">ORDER NOW</a>
+			<a href="#" class="btn">DINE-IN ADDRESS</a>
+		</div>
+	</header>
+
+  
+</body>
+</html>
