@@ -1,2 +1,2 @@
 # fast-n-fresh
-Database management system using react and node
+A website to order food online using Database Management System by implementing MySQL, React, Node and Express
