@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import App from './App';
 import Beverages from './Beverages';
-import Food from './Food';
+// import Food from './Food';
 import Contact from './Contact';
 import About from './About';
 import Gallery from './Gallery';
@@ -14,7 +14,7 @@ render(
 	<Router>
 		<Routes>
 			<Route path='/' element={<App />} />
-			<Route path='food' element={<Food />} />
+			{/* <Route path='food' element={<Food />} /> */}
 			<Route path='beverages' element={<Beverages />} />
 			<Route path='about' element={<About />} />
 			<Route path='contact' element={<Contact />} />
