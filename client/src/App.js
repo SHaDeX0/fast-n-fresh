@@ -15,7 +15,7 @@ function App() {
 							<Link to='/'>Home</Link>
 						</li>
 						<li>
-							<Link to='#'>Services</Link>
+							<Link to='#'>Menu</Link>
 							<ul>
 								<li>
 									<Link to='/food'>Food</Link>
@@ -32,7 +32,10 @@ function App() {
 							<Link to='/about'>About</Link>
 						</li>
 						<li>
-							<Link to='/contact'>Contact</Link>
+							<Link to='/login'>Log In</Link>
+						</li>
+						<li>
+							<Link to='/signup'>Sign Up</Link>
 						</li>
 					</ul>
 				</div>
