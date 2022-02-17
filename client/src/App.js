@@ -43,7 +43,6 @@ function App() {
 					<Link to='/menu' class='btn'>
 						ORDER NOW
 					</Link>
-					{/* <a href="#" class="btn"> DINE-IN ADDRESS </a> */}
 				</div>
 			</header>
 		</>
