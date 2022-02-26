@@ -9,7 +9,7 @@
 	background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(./signinbg.jpg);
 	background-position: center;
 	background-size: cover;
-	position: absolute;
+	position: relative;
 	
 }
 
@@ -89,7 +89,7 @@
 span{
 	color: rgb(0, 0, 0);
 	font-size: 12px;
-	bottom: 60px;
+	bottom: 66px;
 	position: absolute;
 }
 
@@ -97,6 +97,7 @@ span{
 	left: 50px;
 }
 
-/* #signup{
-	left: 350px;
+ /* #signup{ 
+	left: 350px; 
 } */
+

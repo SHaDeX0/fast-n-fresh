@@ -17,13 +17,13 @@ const Regester = () =>{
 			</form>
 				
 			
-				{/* <form id="signup" class="input-group">
+			{/* <form id="signup" class="input-group"> 
 				<input type="text" class="input-field" placeholder="User Id" required />
 				<input type="email" class="input-field" placeholder="Email Id" required />
-				<input type="text" class="input-field" placeholder="Enter Password" required />
+				<input type="text" class="input-field" placeholder="Enter Password" required />					
 				<input type="checkbox" class="check-box" /><span>I agree to the Terms and Conditions</span>
-				<button type="Submit" class="submit-btn">Sign Up</button> 
-				</form> */}
+				<button type="Submit" class="submit-btn">Sign Up</button>
+			</form> */}
 
 				
 		</div>	
