@@ -9,30 +9,30 @@
 	background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(./signinbg.jpg);
 	background-position: center;
 	background-size: cover;
-	position: relative;
+	position: absolute;
 	
 }
 
-.Regester{
-	width: 350px;
-	height: 450px;
+.Register{
+	width: 21.875em;
+	height: 28.125em;
 	position:relative;
 	margin:10% auto;
 	background:rgba(245, 241, 241, 0.808);
-	padding:10px;
+	padding:0.625em;
     overflow: hidden;
 }
 
 .button-box{
-	width:220px;
-	margin:35px auto;
+	width:13.75em;
+	margin:2.1875em auto;
 	position:relative;
-	box-shadow: 0 0 25px 5px #5008081f;
-	border-radius: 30px
+	box-shadow: 0 0 2.1875em 0.3125em #5008081f;
+	border-radius: 1.875em
 }
 
 .toggle-btn{
-	padding:10px 30px;
+	padding:0.625em 2.3em;
 	cursor:pointer;
 	background:transparent;
 	border:0;
@@ -44,60 +44,59 @@
 	top: 0;
 	left:0;
 	position: absolute;
-	width: 110px;
+	width: 6.875em;
 	height: 100%;
 	background:linear-gradient(to right,#FFC288,#b85717);
-	border-radius: 30px;
+	border-radius: 1.875em;
 	transition: .5s;
 }
 
 .input-group{
-	top: 150px;
+	top: 9.375em;
 	position: absolute;
-	width: 250px;
+	width: 15.625em;
 	transition: .5s;
 }
 
 .input-field{
 	width: 100%;
-	padding: 15px 0;
-	margin: 5px 0;
+	padding: 0.9375em 0;
+	margin: 0.3125em 0;
 	border-left: 0;
 	border-right: 0;
 	border-top: 0;
-	border-bottom: 1px solid rgb(0, 0, 0);
+	border-bottom: 0.0625em solid rgb(0, 0, 0);
 	outline: none;
 	background: transparent;
 }
 
 .submit-btn{
 	width: 75%;
-	padding: 10px 10px;
+	padding: 0.625em 0.625em;
 	cursor: pointer;
 	display: block;
 	margin:auto;
 	background: linear-gradient(to right,#FFC288,#b85717);
 	border: 0;
 	outline: none;
-	border-radius: 30px;
+	border-radius: 1.875em;
 }
 
 .check-box{
-	margin:30px 10px 30px 0;
+	margin:0.875em 0.725em 1.25em 0;
 }
 
 span{
 	color: rgb(0, 0, 0);
-	font-size: 12px;
-	bottom: 66px;
+	font-size: 0.75em;
+	bottom: 4.125em;
 	position: absolute;
 }
 
 #login{
-	left: 50px;
+	left: 3.125em;
 }
 
- /* #signup{ 
-	left: 350px; 
-} */
-
+#signup{ 
+	left: 23.875em; 
+} 

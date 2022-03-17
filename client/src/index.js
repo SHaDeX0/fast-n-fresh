@@ -7,7 +7,7 @@ import Food from './Pages/Food';
 import About from './Pages/About/About';
 import Gallery from './Pages/Gallery';
 import Menu from './Pages/Menu';
-import Regester from './Pages/Regester/Regester';
+import Register from './Pages/Register/Register';
 import reportWebVitals from './reportWebVitals';
 
 render(
@@ -19,7 +19,7 @@ render(
 			<Route path='about' element={<About />} />
 			<Route path='gallery' element={<Gallery />} />
 			<Route path='menu' element={<Menu />} />
-			<Route path='regester' element={<Regester />} />
+			<Route path='register' element={<Register />} />
 		</Routes>
 	</Router>,
 	document.getElementById('root')

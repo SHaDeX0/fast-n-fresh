@@ -32,7 +32,7 @@ function App() {
 							<Link to='/about'>About</Link>
 						</li>
 						<li>
-							<Link to='/regester'>Regester</Link>
+							<Link to='/register'>Register</Link>
 						</li>
 					</ul>
 				</div>
