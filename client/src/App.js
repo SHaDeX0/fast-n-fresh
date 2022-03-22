@@ -8,22 +8,15 @@ function App() {
 			<header>
 				<div class='main'>
 					<Link to='/' class='logo'>
-						<img src='logo1.png' />
+						<img src='logo5.png' />
 					</Link>
 					<ul>
 						<li class='active'>
 							<Link to='/'>Home</Link>
 						</li>
 						<li>
-							<Link to='#'>Menu</Link>
-							<ul>
-								<li>
-									<Link to='/food'>Food</Link>
-								</li>
-								<li>
-									<Link to='/beverages'>Beverages</Link>
-								</li>
-							</ul>
+							<Link to='/menu'>Menu</Link>
+							
 						</li>
 						<li>
 							<Link to='/gallery'>Gallery</Link>
