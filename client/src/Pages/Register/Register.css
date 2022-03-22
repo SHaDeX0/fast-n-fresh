@@ -13,7 +13,7 @@
 	
 }
 
-.Register{
+.form-box{
 	width: 21.875em;
 	height: 28.125em;
 	position:relative;
@@ -98,5 +98,5 @@ span{
 }
 
 #signup{ 
-	left: 23.875em; 
+	left: 22.875em; 
 } 
