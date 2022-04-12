@@ -24,76 +24,77 @@ const Register = () => {
 		y.style.left = '450px';
 		z.style.left = '0px';
 	}
+
 	return (
-		<body>
-			<div class='SignInPage'>
-				<div class='form-box'>
-					<div class='button-box'>
+		<>
+			<div className='SignInPage'>
+				<div className='form-box'>
+					<div className='button-box'>
 						<div id='bttn'></div>
 						<button
 							type='button'
-							class='toggle-btn'
+							className='toggle-btn'
 							onClick={login}
 						>
 							Log In
 						</button>
 						<button
 							type='button'
-							class='toggle-btn'
+							className='toggle-btn'
 							onClick={signup}
 						>
 							Sign Up
 						</button>
 					</div>
-					<form id='login' class='input-group'>
+					<form id='login' className='input-group'>
 						<input
 							type='text'
-							class='input-field'
+							className='input-field'
 							placeholder='User Id'
 							required
 							onChange={handleChange}
 						/>
 						<input
 							type='text'
-							class='input-field'
+							className='input-field'
 							placeholder='Enter Password'
 							required
 						/>
-						<input type='checkbox' class='check-box' />
+						<input type='checkbox' className='check-box' />
 						<span>Remember Me</span>
-						<button type='Submit' class='submit-btn'>
+						<button type='Submit' className='submit-btn'>
 							Log In
 						</button>
 					</form>
 
-					<form id='signup' class='input-group'>
+					<form id='signup' className='input-group'>
 						<input
 							type='text'
-							class='input-field'
+							className='input-field'
 							placeholder='User Id'
 							required
 						/>
 						<input
 							type='email'
-							class='input-field'
+							className='input-field'
 							placeholder='Email Id'
 							required
 						/>
 						<input
 							type='text'
-							class='input-field'
+							className='input-field'
 							placeholder='Enter Password'
 							required
 						/>
-						<input type='checkbox' class='check-box' />
+						<input type='checkbox' className='check-box' />
 						<span>I agree to the Terms and Conditions</span>
-						<button type='Submit' class='submit-btn'>
+						<button type='Submit' className='submit-btn'>
 							Sign Up
 						</button>
 					</form>
 				</div>
 			</div>
-		</body>
+		</>
 	);
 };
 
