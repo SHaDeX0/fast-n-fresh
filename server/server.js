@@ -1,16 +1,15 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql');
-const cors = require('cors');
 
-app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-	user: 'root',
-	password: 'root',
-	database: 'fast-n-fresh',
-	host: 'localhost',
+	user: 'admin',
+	password: 'Password',
+	database: 'fast_n_fresh',
+	host: 'fast-n-fresh.cfp2pum9jqtd.us-east-1.rds.amazonaws.com',
+	port: '3306',
 });
 
 app.get('/', (req, res) => {
