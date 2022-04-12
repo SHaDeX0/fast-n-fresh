@@ -16,6 +16,7 @@ render(
 			<Route path='gallery' element={<Gallery />} />
 			<Route path='menu' element={<Menu />} />
 			<Route path='register' element={<Register />} />
+			//TODO: Terms and Conditions
 		</Routes>
 	</Router>,
 	document.getElementById('root')
