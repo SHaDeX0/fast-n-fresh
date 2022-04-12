@@ -14,19 +14,18 @@ const Register = () => {
 	const z = document.getElementById('bttn');
 
 	function signup() {
-		x.style.left = '-400px';
-		y.style.left = '50px';
-		z.style.left = '110px';
+		x.style.left = '-25em';
+		y.style.left = '3.125em';
+		z.style.left = '6.875em';
 	}
 
 	function login() {
-		x.style.left = '50px';
-		y.style.left = '450px';
+		x.style.left = '3.125em';
+		y.style.left = '28.125em';
 		z.style.left = '0px';
 	}
-
 	return (
-		<>
+		
 			<div className='SignInPage'>
 				<div className='form-box'>
 					<div className='button-box'>
@@ -48,9 +47,9 @@ const Register = () => {
 					</div>
 					<form id='login' className='input-group'>
 						<input
-							type='text'
+							type='email'
 							className='input-field'
-							placeholder='User Id'
+							placeholder='E-mail Id'
 							required
 							onChange={handleChange}
 						/>
@@ -60,8 +59,6 @@ const Register = () => {
 							placeholder='Enter Password'
 							required
 						/>
-						<input type='checkbox' className='check-box' />
-						<span>Remember Me</span>
 						<button type='Submit' className='submit-btn'>
 							Log In
 						</button>
@@ -71,7 +68,13 @@ const Register = () => {
 						<input
 							type='text'
 							className='input-field'
-							placeholder='User Id'
+							placeholder='Name'
+							required
+						/>
+						<input
+							type='number'
+							className='input-field'
+							placeholder='Phone Number'
 							required
 						/>
 						<input
@@ -86,6 +89,12 @@ const Register = () => {
 							placeholder='Enter Password'
 							required
 						/>
+						<input
+							type='text'
+							className='input-field'
+							placeholder='Re-Enter Password'
+							required
+						/>
 						<input type='checkbox' className='check-box' />
 						<span>I agree to the Terms and Conditions</span>
 						<button type='Submit' className='submit-btn'>
@@ -94,7 +103,7 @@ const Register = () => {
 					</form>
 				</div>
 			</div>
-		</>
+		
 	);
 };
 
