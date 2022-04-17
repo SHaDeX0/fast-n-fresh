@@ -1,45 +1,30 @@
-import './App.css';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import './App.css'
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './Home'
+import About from './Pages/About/About'
+import Gallery from './Pages/Gallery'
+import Menu from './Pages/Menu'
+import Register from './Pages/Register/Register'
+import { UserContext } from './UserContext'
 
-function App() {
+const App = () => {
+	const [userName, setUserName] = useState('')
+
 	return (
-		<>
-			<header>
-				<div class='main'>
-					<Link to='/' class='logo'>
-						<img src='logo5.png' />
-					</Link>
-					<ul>
-						<li class='active'>
-							<Link to='/'>Home</Link>
-						</li>
-						<li>
-							<Link to='/menu'>Menu</Link>
-							
-						</li>
-						<li>
-							<Link to='/gallery'>Gallery</Link>
-						</li>
-						<li>
-							<Link to='/about'>About</Link>
-						</li>
-						<li>
-							<Link to='/register'>Register</Link>
-						</li>
-					</ul>
-				</div>
-				<div class='title'>
-					<h1>FAST 'N FRESH</h1>
-				</div>
-				<div class='button'>
-					<Link to='/menu' class='btn'>
-						ORDER NOW
-					</Link>
-				</div>
-			</header>
-		</>
-	);
+		<Router>
+			<UserContext.Provider value={{ userName, setUserName }}>
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='about' element={<About />} />
+					<Route path='gallery' element={<Gallery />} />
+					<Route path='menu' element={<Menu />} />
+					<Route path='register' element={<Register />} />
+					{/*TODO: Terms and Conditions*/}
+				</Routes>
+			</UserContext.Provider>
+		</Router>
+	)
 }
 
-export default App;
+export default App

@@ -18,6 +18,27 @@ app.get('/', (req, res) => {
 	res.send('hello');
 });
 
+app.post('/getUser', (req, res) => {
+	const email = req.body.email;
+	const password = req.body.password;
+
+	db.query(
+		`SELECT * FROM fast_n_fresh.users WHERE email = ? AND password = ?`,
+		[email, password],
+		(err, result) => {
+			if (err) {
+				res.send({ err: err });
+			}
+
+			if (result.length > 0) {
+				res.send(result);
+			} else {
+				res.send({ message: 'Wrong password!' });
+			}
+		}
+	);
+});
+
 app.post('/signup', (req, res) => {
 	const name = req.body.name;
 	const mobile = req.body.mobile;
@@ -29,9 +50,12 @@ app.post('/signup', (req, res) => {
 		[email, password, name, mobile],
 		(err, result) => {
 			if (err) {
-				console.log(err);
+				res.send({ err: err });
+			}
+			if (result) {
+				res.send(result);
 			} else {
-				res.send('Values Inserted!');
+				res.send({ message: 'User already exists!' });
 			}
 		}
 	);
