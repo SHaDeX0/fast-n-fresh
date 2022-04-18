@@ -14,10 +14,6 @@ const db = mysql.createConnection({
 	port: '3306',
 })
 
-app.get('/', (req, res) => {
-	res.send('hello')
-})
-
 app.post('/getUser', (req, res) => {
 	const email = req.body.email
 	const password = req.body.password
@@ -60,6 +56,8 @@ app.post('/signup', (req, res) => {
 		}
 	)
 })
+
+app.get('/menu', (req, res) => {})
 
 app.listen(5000, () => {
 	console.log('Listening at port 5000...')

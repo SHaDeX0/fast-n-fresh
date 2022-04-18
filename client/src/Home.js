@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from './UserContext'
+import HomeIcon from '@mui/icons-material/Home'
 
 const Home = () => {
 	const { userName, setUserName } = useContext(UserContext)
@@ -18,7 +19,9 @@ const Home = () => {
 					</Link>
 					<ul>
 						<li className='active'>
-							<Link to='/'>Home</Link>
+							<Link to='/'>
+								<HomeIcon />
+							</Link>
 						</li>
 						<li>
 							<Link to='/menu'>Menu</Link>

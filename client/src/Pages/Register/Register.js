@@ -14,7 +14,7 @@ const Register = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [rePassword, setRePassword] = useState('')
-	// const [encryptPassword, setEncryptPassword] = useState('')
+	// TODO Encrypt password
 
 	const postUser = () => {
 		if (password === rePassword) {
