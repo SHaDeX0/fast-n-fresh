@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { UserContext } from './UserContext'
+// import HomeIcon from '@mui/icons-material/Home';
 
 const Home = () => {
 	const { userName, setUserName } = useContext(UserContext)
@@ -29,6 +30,7 @@ const Home = () => {
 						<li>
 							<Link to='/about'>About</Link>
 						</li>
+
 						{userName ? (
 							<>
 								<li>
