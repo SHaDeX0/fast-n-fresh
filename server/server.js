@@ -19,7 +19,7 @@ app.post('/getUser', (req, res) => {
 	const password = req.body.password
 
 	db.query(
-		`SELECT * FROM fast_n_fresh.users WHERE email = ? AND password = ?`,
+		`SELECT * FROM users WHERE email = ? AND password = ?`,
 		[email, password],
 		(err, result) => {
 			if (err) {
@@ -57,7 +57,15 @@ app.post('/signup', (req, res) => {
 	)
 })
 
-app.get('/menu', (req, res) => {})
+app.get('/menu', (req, res) => {
+	db.query(`SELECT * FROM menu`, (err, result) => {
+		if (err) {
+			res.send({ err: err })
+		} else {
+			res.send(result)
+		}
+	})
+})
 
 app.listen(5000, () => {
 	console.log('Listening at port 5000...')
