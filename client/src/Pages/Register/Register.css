@@ -6,7 +6,7 @@
 .SignInPage {
 	height: 100%;
 	width: 100%;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+	background-color: rgb(255, 255, 255);
 		url(./signinbg.jpg);
 	background-position: center;
 	background-size: cover;
@@ -18,13 +18,13 @@
 	height: 29.125em;
 	position: relative;
 	margin: 10% auto;
-	background: rgba(245, 241, 241, 0.808);
+	background:rgba(226, 199, 199, 0.808);
 	padding: 0.625em;
 	overflow: hidden;
 }
 
 .form-box:hover {
-	box-shadow: 0.375em 0.375em 2.5em 0.325em #4a4847;
+	box-shadow: 0.65em 0.35em 0.75em 0.15em #958f8c;
 }
 
 .button-box {
