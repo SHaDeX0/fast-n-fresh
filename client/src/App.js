@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './Home'
 import About from './Pages/About/About'
@@ -10,6 +10,14 @@ import { UserContext } from './UserContext'
 
 const App = () => {
 	const [userName, setUserName] = useState('')
+
+	useEffect(() => {
+		setUserName(window.localStorage.getItem('userName'))
+	}, [])
+
+	useEffect(() => {
+		window.localStorage.setItem('userName', userName)
+	}, [userName])
 
 	return (
 		<Router>

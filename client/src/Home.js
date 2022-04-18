@@ -14,7 +14,7 @@ const Home = () => {
 			<header>
 				<div className='main'>
 					<Link to='/' className='logo'>
-						<img src='logo5.png' />
+						<img src='logo5.png' alt='fast-n-fresh-logo' />
 					</Link>
 					<ul>
 						<li className='active'>
