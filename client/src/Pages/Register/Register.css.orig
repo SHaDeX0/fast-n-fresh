@@ -7,6 +7,7 @@
 	height: 100%;
 	width: 100%;
 	background-color: rgb(255, 255, 255);
+		url(./signinbg.jpg);
 	background-position: center;
 	background-size: cover;
 	position: absolute;
