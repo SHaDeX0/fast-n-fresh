@@ -20,6 +20,7 @@ const Menu = () =>{
         			</CardContent>
       				</CardActionArea>
 					  <CardActions>
+						  
 						<Typography>Todo : increment and decrement quantity </Typography>
         				<Button variant="outlined" size="small" color="primary">Add to cart</Button>
      		 		 </CardActions>
