@@ -9,10 +9,6 @@ const Register = () => {
 
 	const nav = useNavigate()
 
-	const x = document.getElementById('login')
-	const y = document.getElementById('signup')
-	const z = document.getElementById('bttn')
-
 	const [name, setName] = useState('')
 	const [mobile, setMobile] = useState('')
 	const [email, setEmail] = useState('')
@@ -65,19 +61,15 @@ const Register = () => {
 	}
 
 	const signup = () => {
-		if (x && y && z) {
-			x.style.left = '-25em'
-			y.style.left = '3.125em'
-			z.style.left = '6.875em'
-		}
+		document.getElementById('login').style.left = '-25em'
+		document.getElementById('signup').style.left = '3.125em'
+		document.getElementById('bttn').style.left = '6.875em'
 	}
 
 	const login = () => {
-		if (x && y && z) {
-			x.style.left = '3.125em'
-			y.style.left = '28.125em'
-			z.style.left = '0'
-		}
+		document.getElementById('login').style.left = '3.125em'
+		document.getElementById('signup').style.left = '28.125em'
+		document.getElementById('bttn').style.left = '0'
 	}
 
 	return (
