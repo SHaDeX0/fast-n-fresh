@@ -5,7 +5,7 @@ import { UserContext } from '../../UserContext'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-	const { userName, setUserName } = useContext(UserContext)
+	const { setUserName } = useContext(UserContext)
 
 	const nav = useNavigate()
 
