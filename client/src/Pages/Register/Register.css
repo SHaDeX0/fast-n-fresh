@@ -1,68 +1,68 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
 }
-.SignInPage{
+.SignInPage {
 	height: 100%;
 	width: 100%;
-	background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(./signinbg.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+		url(./signinbg.jpg);
 	background-position: center;
 	background-size: cover;
 	position: absolute;
-	
 }
 
-.form-box{
+.form-box {
 	width: 21.875em;
 	height: 29.125em;
-	position:relative;
-	margin:10% auto;
-	background:rgba(245, 241, 241, 0.808);
-	padding:0.625em;
-    overflow: hidden;
+	position: relative;
+	margin: 10% auto;
+	background: rgba(245, 241, 241, 0.808);
+	padding: 0.625em;
+	overflow: hidden;
 }
 
 .form-box:hover{
 	box-shadow: 0.375em 0.375em 2.5em 0.325em #4a4847;
 }
 
-.button-box{
-	width:13.75em;
-	margin:2.1875em auto;
-	position:relative;
+.button-box {
+	width: 13.75em;
+	margin: 2.1875em auto;
+	position: relative;
 	box-shadow: 0 0 2.1875em 0.3125em #5008081f;
-	border-radius: 1.875em
+	border-radius: 1.875em;
 }
 
-.toggle-btn{
-	padding:0.625em 2.3em;
-	cursor:pointer;
-	background:transparent;
-	border:0;
+.toggle-btn {
+	padding: 0.625em 2.3em;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
 	outline: none;
 	position: relative;
 }
 
-#bttn{
+#bttn {
 	top: 0;
-	left:0;
+	left: 0;
 	position: absolute;
 	width: 6.875em;
 	height: 100%;
-	background:linear-gradient(to right,#FFC288,#b85717);
+	background: linear-gradient(to right, #ffc288, #b85717);
 	border-radius: 1.875em;
-	transition: .5s;
+	transition: 0.5s;
 }
 
-.input-group{
+.input-group {
 	top: 9.375em;
 	position: absolute;
 	width: 15.625em;
-	transition: .5s;
+	transition: 0.5s;
 }
 
-.input-field{
+.input-field {
 	width: 100%;
 	padding: 0.9375em 0;
 	margin: 0.3125em 0;
@@ -74,34 +74,34 @@
 	background: transparent;
 }
 
-.submit-btn{
+.submit-btn {
 	width: 75%;
 	padding: 0.625em 0.625em;
 	cursor: pointer;
 	display: block;
-	margin:auto;
-	background: linear-gradient(to right,#FFC288,#b85717);
+	margin: auto;
+	background: linear-gradient(to right, #ffc288, #b85717);
 	border: 0;
 	outline: none;
 	border-radius: 1.875em;
 }
 
-.check-box{
-	margin:0.875em 0.725em 1.25em 0;
+.check-box {
+	margin: 0.875em 0.725em 1.25em 0;
 }
 
-span{
+span {
 	color: rgb(0, 0, 0);
 	font-size: 0.75em;
 	bottom: 4.125em;
 	position: absolute;
 }
 
-#login{
+#login {
 	left: 3.125em;
 }
 
-#signup{ 
+#signup {
 	left: 25.875em; 
 } 
 
