@@ -1,7 +1,7 @@
 // import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Button, CardActions, CardContent, CardMedia, Typography, CardActionArea, Card, Grid } from '@mui/material'
-import Card from './Card'
+import CustomCard from './CustomCard'
 
 const Menu = () => {
 	// const [foodItems, setFoodItems] = useState([])

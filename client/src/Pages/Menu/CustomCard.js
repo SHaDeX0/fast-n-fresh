@@ -1,17 +1,17 @@
 import React from 'react'
-import { Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Button } from '@mui/material'
+import { Grid, Card, CardActionArea, CardMedia, CardContent, CardActions, Typography, Button } from '@mui/material'
 
-const Card = props => {
+const CustomCard = props => {
 	return (
 		<div key={props.id}>
 			<Grid container spacing={3}>
 				<Grid item xs={3}>
 					<Card sx={{ maxWidth: 345 }}>
 						<CardActionArea>
-							<CardMedia component='img' height='140' image={props.img} />
+							<CardMedia component='img' height='140' image={props.image} alt='food item image' />
 							<CardContent>
 								<Typography gutterBottom variant='h5' component='div'>
-									{props.title}
+									{props.name}
 								</Typography>
 							</CardContent>
 						</CardActionArea>
@@ -28,4 +28,4 @@ const Card = props => {
 	)
 }
 
-export default Card
+export default CustomCard
