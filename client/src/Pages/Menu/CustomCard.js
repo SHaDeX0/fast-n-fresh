@@ -8,7 +8,7 @@ const CustomCard = props => {
 				<Grid item xs={3}>
 					<Card sx={{ maxWidth: 345 }}>
 						<CardActionArea>
-							<CardMedia component='img' height='140' image={props.image} alt='food item image' />
+							<CardMedia component='img' height='140' image={props.image} title={props.name} alt='food item image' />
 							<CardContent>
 								<Typography gutterBottom variant='h5' component='div'>
 									{props.name}
