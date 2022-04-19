@@ -18,21 +18,17 @@ app.post('/getUser', (req, res) => {
 	const email = req.body.email
 	const password = req.body.password
 
-	db.query(
-		`SELECT * FROM users WHERE email = ? AND password = ?`,
-		[email, password],
-		(err, result) => {
-			if (err) {
-				res.send({ err: err })
-			}
-
-			if (result.length > 0) {
-				res.send(result)
-			} else {
-				res.send({ message: 'Wrong password!' })
-			}
+	db.query(`SELECT * FROM users WHERE email = ? AND password = ?`, [email, password], (err, result) => {
+		if (err) {
+			res.send({ err: err })
 		}
-	)
+
+		if (result.length > 0) {
+			res.send(result)
+		} else {
+			res.send({ message: 'Wrong password!' })
+		}
+	})
 })
 
 app.post('/signup', (req, res) => {
@@ -41,20 +37,16 @@ app.post('/signup', (req, res) => {
 	const email = req.body.email
 	const password = req.body.password
 
-	db.query(
-		'INSERT INTO users(email, password, name, mobile) VALUES (?, ?, ?, ?)',
-		[email, password, name, mobile],
-		(err, result) => {
-			if (err) {
-				res.send({ err: err })
-			}
-			if (result) {
-				res.send(result)
-			} else {
-				res.send({ message: 'User already exists!' })
-			}
+	db.query('INSERT INTO users(email, password, name, mobile) VALUES (?, ?, ?, ?)', [email, password, name, mobile], (err, result) => {
+		if (err) {
+			res.send({ err: err })
 		}
-	)
+		if (result) {
+			res.send(result)
+		} else {
+			res.send({ message: 'User already exists!' })
+		}
+	})
 })
 
 app.get('/menu', (req, res) => {
