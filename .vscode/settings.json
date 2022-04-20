@@ -1,5 +1,7 @@
 {
 	"prettier.semi": false,
 	"prettier.singleQuote": true,
-	"prettier.printWidth": 1000
+	"prettier.printWidth": 1000,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"prettier.useTabs": false
 }

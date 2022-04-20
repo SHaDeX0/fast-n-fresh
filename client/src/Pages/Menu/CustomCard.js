@@ -3,9 +3,10 @@ import { Grid, Card, CardActionArea, CardMedia, CardContent, CardActions, Typogr
 
 const CustomCard = props => {
 	return (
+		
 		<div key={props.id}>
-			<Grid container spacing={3}>
-				<Grid item xs={3}>
+			<Grid container>
+				<Grid item >
 					<Card sx={{ maxWidth: 345 }}>
 						<CardActionArea>
 							<CardMedia component='img' height='140' image={props.image} title={props.name} alt='food item image' />
@@ -24,6 +25,7 @@ const CustomCard = props => {
 					</Card>
 				</Grid>
 			</Grid>
+			
 		</div>
 	)
 	// return (
