@@ -12,7 +12,7 @@ const PeopleCard = props => {
 
   return (
     <>
-      <Card variant='elevation' sx={{ maxWidth: 350, minWidth: 290, border: 1, borderColor: 'lightgrey', borderRadius: '2%' }} onMouseOver={() => setElevation(0)} onMouseOut={() => setElevation(5)} elevation={elevation}>
+      <Card variant='elevation' sx={{ maxWidth: 350, minWidth: 300, border: 1, borderColor: 'lightgrey', borderRadius: '2%' }} onMouseOver={() => setElevation(0)} onMouseOut={() => setElevation(5)} elevation={elevation}>
         <CardContent>
           <Typography variant='h5' component='div'>
             {props.name}
@@ -91,7 +91,7 @@ const About = () => {
             </Box>
             <Grid container sx={{ flexGrow: 1, maxWidth: '95%', marginLeft: '2.5%' }} justifyContent='center' alignItems='center' mt={'7%'} mb={'5%'} columnGap={5} rowGap={5}>
               {devs.map(item => (
-                <Grid item container justifyContent='center' xs={3} key={item.id} sx={{ minWidth: 290 }}>
+                <Grid item container justifyContent='center' xs={3} key={item.id} sx={{ minWidth: 300 }}>
                   <PeopleCard image={item.image} name={item.name} details={item.details} phone={item.phone} email={item.email} instagram={item.instagram} git={item.git} />
                 </Grid>
               ))}

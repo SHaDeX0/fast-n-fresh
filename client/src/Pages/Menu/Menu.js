@@ -1,6 +1,6 @@
 import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { CircularProgress } from '@mui/material'
+import { CircularProgress, Grid } from '@mui/material'
 import CustomCard from './CustomCard'
 
 const Menu = () => {
@@ -19,20 +19,22 @@ const Menu = () => {
   }, [])
 
   return (
-    <div>
-      {foodItems ? (
-        foodItems.map(item => (
-          <div id='cards' key={item.id}>
-            <CustomCard id={item.id} image={item.image} name={item.name} />
-            <br />
+    <>
+      <Grid container>
+        {foodItems ? (
+          foodItems.map(item => (
+            <Grid item xs={3} key={item.id}>
+              <CustomCard id={item.id} image={item.image} name={item.name} />
+              <br />
+            </Grid>
+          ))
+        ) : (
+          <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '100vh', width: '100vw' }}>
+            <CircularProgress style={{ justifyContent: 'center', position: 'fixed', top: '50%' }} size={100} />
           </div>
-        ))
-      ) : (
-        <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '100vh', width: '100vw' }}>
-          <CircularProgress style={{ justifyContent: 'center', position: 'fixed', top: '50%' }} size={100} />
-        </div>
-      )}
-    </div>
+        )}
+      </Grid>
+    </>
   )
 }
 
