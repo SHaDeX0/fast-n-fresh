@@ -1,23 +1,55 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Axios from 'axios'
-import { AppBar, Box, Button, CardActions, Card, CircularProgress, Grid, IconButton, Toolbar, Typography, CardContent, CardMedia } from '@mui/material'
+import { AppBar, Box, CardActions, Card, CircularProgress, Grid, IconButton, Toolbar, Typography, CardContent, CardMedia } from '@mui/material'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
+import EmailIcon from '@mui/icons-material/Email'
+import CallIcon from '@mui/icons-material/Call'
+import InstagramIcon from '@mui/icons-material/Instagram'
+import GitHubIcon from '@mui/icons-material/GitHub'
 
 const PeopleCard = props => {
+  const [elevation, setElevation] = useState(5)
+
   return (
     <>
-      <Card sx={{ maxWidth: 350 }}>
-        <CardMedia component='img' height='350vh' image={props.image} title={props.name} alt={props.name} />
+      <Card variant='elevation' sx={{ maxWidth: 350, minWidth: 290, border: 1, borderColor: 'lightgrey', borderRadius: '2%' }} onMouseOver={() => setElevation(0)} onMouseOut={() => setElevation(5)} elevation={elevation}>
         <CardContent>
           <Typography variant='h5' component='div'>
             {props.name}
           </Typography>
-          <Typography variant='body2' color='text.secondary'>
-            {props.details}
-          </Typography>
         </CardContent>
+        <CardMedia component='img' height='350vh' image={props.image} title={props.name} alt={props.name} sx={{ marginLeft: '2%', width: '96%', borderRadius: '2%' }} />
         <CardActions>
-          <Button size='small'>TODO: Social Media</Button>
+          <CardContent>
+            <Typography variant='body2' color='text.secondary'>
+              {props.details}
+              <br />
+              <br />
+            </Typography>
+            <Typography variant='body2' color='text.secondary' sx={{ display: 'inline-flex', verticalAlign: 'center' }}>
+              <CallIcon />
+              &nbsp;&nbsp;
+              {props.phone}
+              <br />
+            </Typography>
+            <Typography variant='body2' color='text.secondary' sx={{ display: 'inline-flex', verticalAlign: 'center' }}>
+              <EmailIcon />
+              &nbsp;&nbsp;
+              {props.email}
+            </Typography>
+          </CardContent>
+        </CardActions>
+        <CardActions>
+          <a href={props.instagram} rel='noreferrer' target='_blank'>
+            <IconButton>
+              <InstagramIcon />
+            </IconButton>
+          </a>
+          <a href={props.git} rel='noreferrer' target='_blank'>
+            <IconButton>
+              <GitHubIcon />
+            </IconButton>
+          </a>
         </CardActions>
       </Card>
     </>
@@ -44,29 +76,31 @@ const About = () => {
     <>
       {devs ? (
         <>
-          <Box sx={{ flexGrow: 1 }}>
-            <AppBar position='static' sx={{ backgroundColor: 'orange', height: 65, maxHeight: 65 }}>
-              <Toolbar>
-                <IconButton size='large' edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }}>
-                  <PeopleAltIcon fontSize='large' />
-                </IconButton>
-                <Typography variant='h3' component='div' sx={{ flexGrow: 1 }}>
-                  About Us
-                </Typography>
-              </Toolbar>
-            </AppBar>
-            <Grid container sx={{ flexGrow: 1 }} justifyContent='center' alignItems='center' mt={'10%'}>
+          <Box sx={{ flexGrow: 1, justifyContent: 'center' }}>
+            <Box sx={{ justifyContent: 'center', alignItems: 'center' }}>
+              <AppBar position='static' sx={{ backgroundColor: 'orange', maxHeight: '7vh', maxWidth: '98%', justifyContent: 'center', marginLeft: '1%', marginTop: '0.5vh' }}>
+                <Toolbar>
+                  <IconButton size='large' edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }}>
+                    <PeopleAltIcon fontSize='large' />
+                  </IconButton>
+                  <Typography variant='h3' component='div' sx={{ flexGrow: 1 }}>
+                    About Us
+                  </Typography>
+                </Toolbar>
+              </AppBar>
+            </Box>
+            <Grid container sx={{ flexGrow: 1, maxWidth: '95%', marginLeft: '2.5%' }} justifyContent='center' alignItems='center' mt={'7%'} mb={'5%'} columnGap={5} rowGap={5}>
               {devs.map(item => (
-                <Grid item xs={6} key={item.id} sx={{ padding: 10 }}>
-                  <PeopleCard image={item.image} name={item.name} details={item.details} phone={item.phone} email={item.email} />
+                <Grid item container justifyContent='center' xs={3} key={item.id} sx={{ minWidth: 290 }}>
+                  <PeopleCard image={item.image} name={item.name} details={item.details} phone={item.phone} email={item.email} instagram={item.instagram} git={item.git} />
                 </Grid>
               ))}
             </Grid>
           </Box>
         </>
       ) : (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
-          <Grid item xs={3}>
+        <Grid container justifyContent='center' alignItems='center'>
+          <Grid item xs={12} justifyContent='center' sx={{ backgroundColor: 'red' }}>
             <CircularProgress size={100} />
           </Grid>
         </Grid>
