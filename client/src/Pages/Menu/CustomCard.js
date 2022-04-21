@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Card, CardActionArea, CardMedia, CardContent, CardActions, Typography, Button } from '@mui/material'
+// import GroupedButtons from './GroupedButtons'
 
 const CustomCard = props => {
   return (
@@ -16,6 +17,7 @@ const CustomCard = props => {
           </CardActionArea>
           <CardActions>
             <Typography>Todo : increment and decrement quantity </Typography>
+
             <Button variant='outlined' size='small' color='primary'>
               Add to cart
             </Button>
