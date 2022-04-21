@@ -8,8 +8,8 @@ const Menu = () => {
 
   const getFoodItems = async () => {
     await Axios.get('http://localhost:5000/menu')
-      .then(({ data }) => {
-        setFoodItems(data)
+      .then(res => {
+        setFoodItems(res.data)
       })
       .catch(err => console.log(err))
   }
