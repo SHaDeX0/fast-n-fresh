@@ -1,7 +1,11 @@
 import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { CircularProgress, Grid } from '@mui/material'
+import { AppBar, CircularProgress, Grid, IconButton, Typography } from '@mui/material'
 import CustomCard from './CustomCard'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded'
 
 const Menu = () => {
   const [foodItems, setFoodItems] = useState(null)
@@ -20,6 +24,21 @@ const Menu = () => {
 
   return (
     <>
+      <Box position='sticky' sx={{ justifyContent: 'center', alignItems: 'center', p: 2 }}>
+        <AppBar position='sticky' sx={{ backgroundColor: 'orange', maxHeight: '7vh', maxWidth: '98%', justifyContent: 'center', marginLeft: '1%', marginTop: '0.5vh', margin: '0.5 vh' }}>
+          <Toolbar>
+            <Typography variant='h6' noWrap component='div' sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+              OUR MENU
+            </Typography>
+            <IconButton>
+              <ShoppingCartIcon />
+            </IconButton>
+            <IconButton>
+              <AccountCircleRoundedIcon />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+      </Box>
       <Grid container>
         {foodItems ? (
           foodItems.map(item => (

@@ -78,7 +78,7 @@ const About = () => {
         <>
           <Box sx={{ flexGrow: 1, justifyContent: 'center' }}>
             <Box sx={{ justifyContent: 'center', alignItems: 'center' }}>
-              <AppBar position='static' sx={{ backgroundColor: 'orange', maxHeight: '7vh', maxWidth: '98%', justifyContent: 'center', marginLeft: '1%', marginTop: '0.5vh' }}>
+              <AppBar position='sticky' sx={{ backgroundColor: 'orange', maxHeight: '7vh', maxWidth: '98%', justifyContent: 'center', marginLeft: '1%', marginTop: '0.5vh' }}>
                 <Toolbar>
                   <IconButton size='large' edge='start' color='inherit' aria-label='menu' sx={{ mr: 2 }}>
                     <PeopleAltIcon fontSize='large' />
@@ -99,11 +99,9 @@ const About = () => {
           </Box>
         </>
       ) : (
-        <Grid container justifyContent='center' alignItems='center'>
-          <Grid item xs={12} justifyContent='center' sx={{ backgroundColor: 'red' }}>
-            <CircularProgress size={100} />
-          </Grid>
-        </Grid>
+        <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '100vh', width: '100vw' }}>
+          <CircularProgress style={{ justifyContent: 'center', position: 'fixed', top: '50%' }} size={100} />
+        </div>
       )}
     </>
   )

@@ -27,7 +27,7 @@ ul li a:hover {
   color: #fff;
 }
 ul li.active a {
-  background-color: #000;
+  background-color: rgb(0, 0, 0);
   color: #fff;
 }
 
@@ -57,10 +57,11 @@ ul li:hover > ul {
   max-width: 75em;
   margin: auto;
 }
+
 .title {
   position: relative;
   top: 40%;
-  left: 50%;
+  left: 65%;
   transform: translate(-50%, -50%);
 }
 .title h1 {
