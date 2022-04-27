@@ -44,7 +44,7 @@ const Home = () => {
 						{userName ? (
 							<>
 								<li>
-									<Link to='/register' onClick={() => logout()}>
+									<Link to='/login' onClick={() => logout()}>
 										Logout
 									</Link>
 								</li>
@@ -53,10 +53,10 @@ const Home = () => {
 						) : (
 							<>
 								<li>
-									<Link to='/register'>Login</Link>
+									<Link to='/login'>Login</Link>
 								</li>
 								<li>
-									<Link to='/register'>Sign Up</Link>
+									<Link to='/signup'>Sign Up</Link>
 								</li>
 							</>
 						)}

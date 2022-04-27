@@ -22,12 +22,10 @@ app.post('/getUser', (req, res) => {
 	db.query(`SELECT * FROM users WHERE email = ? AND password = ?`, [email, password], (err, result) => {
 		if (err) {
 			res.send({ err: err })
-		}
-
-		if (result.length > 0) {
+		} else if (result.length > 0) {
 			res.send(result)
 		} else {
-			res.send({ message: 'Wrong password!' })
+			res.send({ message: 'Wrong email or password!' })
 		}
 	})
 })
@@ -43,10 +41,17 @@ app.post('/signup', (req, res) => {
 		[email, password, name, mobile],
 		(err, result) => {
 			if (err) {
-				res.send({ err: err })
-			}
-			if (result) {
-				res.send(result)
+				res.send({ err: 'User already exists!' })
+			} else if (result) {
+				db.query(`SELECT * FROM users WHERE email = ? AND password = ?`, [email, password], (err, result) => {
+					if (err) {
+						res.send({ err: err })
+					} else if (result.length > 0) {
+						res.send(result)
+					} else {
+						res.send({ message: 'Wrong email or password!' })
+					}
+				})
 			} else {
 				res.send({ message: 'User already exists!' })
 			}

@@ -7,9 +7,9 @@ import InfoIcon from '@mui/icons-material/Info'
 
 const ShowImages = props => {
 	return (
-		<ImageList sx={{ width: 500, height: 450 }}>
+		<ImageList sx={{ width: '40vw' }}>
 			<ImageListItem>
-				<img src={props.img} srcSet={props.img} alt={props.title} loading='lazy' />
+				<img src={props.img} alt={props.title} loading='lazy' />
 				<ImageListItemBar
 					title={props.title}
 					actionIcon={
@@ -17,6 +17,7 @@ const ShowImages = props => {
 							<InfoIcon />
 						</IconButton>
 					}
+					
 				/>
 			</ImageListItem>
 		</ImageList>

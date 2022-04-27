@@ -10,24 +10,33 @@ import { UserContext } from './UserContext'
 
 const App = () => {
 	const [userName, setUserName] = useState('')
+	const [userEmail, setUserEmail] = useState('')
 
 	useEffect(() => {
 		setUserName(window.localStorage.getItem('userName'))
+		setUserEmail(window.localStorage.getItem('userEmail'))
 	}, [])
 
 	useEffect(() => {
 		window.localStorage.setItem('userName', userName)
-	}, [userName])
+		window.localStorage.setItem('userEmail', userEmail)
+	}, [userName, userEmail])
+
+	useEffect(() => {
+		console.log(userName)
+		console.log(userEmail)
+	})
 
 	return (
 		<Router>
-			<UserContext.Provider value={{ userName, setUserName }}>
+			<UserContext.Provider value={{ userName, setUserName, userEmail, setUserEmail }}>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='about' element={<About />} />
 					<Route path='gallery' element={<Gallery />} />
 					<Route path='menu' element={<Menu />} />
-					<Route path='register' element={<Register />} />
+					<Route path='signup' element={<Register load='signup' />} />
+					<Route path='login' element={<Register load='login' />} />
 					{/*TODO: Terms and Conditions*/}
 				</Routes>
 			</UserContext.Provider>

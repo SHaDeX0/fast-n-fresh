@@ -13,13 +13,13 @@ import {
 	CardContent,
 	CardMedia,
 } from '@mui/material'
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
+import WhatsAppIcon from '@mui/icons-material/WhatsApp'
 import EmailIcon from '@mui/icons-material/Email'
-import CallIcon from '@mui/icons-material/Call'
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import GitHubIcon from '@mui/icons-material/GitHub'
 
-const PeopleCard = props => {
+const PeopleCard = (props) => {
 	const [elevation, setElevation] = useState(3)
 
 	return (
@@ -51,17 +51,6 @@ const PeopleCard = props => {
 							<br />
 							<br />
 						</Typography>
-						<Typography variant='body2' color='text.secondary' sx={{ display: 'inline-flex', verticalAlign: 'center' }}>
-							<CallIcon />
-							&nbsp;&nbsp;
-							{props.phone}
-							<br />
-						</Typography>
-						<Typography variant='body2' color='text.secondary' sx={{ display: 'inline-flex', verticalAlign: 'center' }}>
-							<EmailIcon />
-							&nbsp;&nbsp;
-							{props.email}
-						</Typography>
 					</CardContent>
 				</CardActions>
 				<CardActions>
@@ -73,6 +62,28 @@ const PeopleCard = props => {
 					<a href={props.git} rel='noreferrer' target='_blank'>
 						<IconButton>
 							<GitHubIcon />
+						</IconButton>
+					</a>
+					<a
+						href={`https://api.whatsapp.com/send/?phone=${props.phone.replace(/[^\w\s]/gi, '').replace(/ /g, '')}&text=`
+							.concat(encodeURI(`Hello ${props.name}, I reached here from your Fast 'N Fresh website.`))
+							.concat('&app_absent=0')}
+						rel='noreferrer'
+						target='_blank'
+					>
+						<IconButton>
+							<WhatsAppIcon />
+						</IconButton>
+					</a>
+					<a
+						href={`mailto:${props.email}?subject=Fast%20'N%20Fresh&body=`.concat(
+							encodeURI(`Hello ${props.name}, I reached here from your Fast 'N Fresh website.`)
+						)}
+						rel='noreferrer'
+						target='_blank'
+					>
+						<IconButton>
+							<EmailIcon />
 						</IconButton>
 					</a>
 				</CardActions>
@@ -90,7 +101,7 @@ const About = () => {
 				setDevs(data)
 				console.log(data)
 			})
-			.catch(err => console.log(err))
+			.catch((err) => console.log(err))
 	}
 
 	useEffect(() => {
@@ -134,7 +145,7 @@ const About = () => {
 							columnGap={5}
 							rowGap={5}
 						>
-							{devs.map(item => (
+							{devs.map((item) => (
 								<Grid item container justifyContent='center' xs={3} key={item.id} sx={{ minWidth: 300 }}>
 									<PeopleCard
 										image={item.image}

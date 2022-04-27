@@ -1,11 +1,11 @@
-import { React, useContext, useState } from 'react'
+import { React, useContext, useEffect, useState } from 'react'
 import './Register.css'
 import Axios from 'axios'
 import { UserContext } from '../../UserContext'
 import { useNavigate } from 'react-router-dom'
 
-const Register = () => {
-	const { setUserName } = useContext(UserContext)
+const Register = (props) => {
+	const { setUserName, setUserEmail } = useContext(UserContext)
 
 	const nav = useNavigate()
 
@@ -16,30 +16,42 @@ const Register = () => {
 	const [rePassword, setRePassword] = useState('')
 	// TODO Encrypt password
 
+	useEffect(() => {
+		if (props.load === 'login') return
+		signup()
+	}, [props])
+
 	const postUser = () => {
-		if (password === rePassword) {
-			Axios.post('http://localhost:5000/signup', {
-				name: name,
-				mobile: mobile,
-				email: email,
-				password: password,
-			})
-				.then(res => {
-					if (res.data.err) {
-						console.log(res.data.err)
-					} else if (res.data.message) {
-						console.log(res.data.message)
-					} else {
-						console.log(res.data)
-						nav('/')
-					}
-				})
-				.catch(err => {
-					console.log(err)
-				})
-		} else {
+		if (password !== rePassword) {
 			alert("Passwords don't match!")
+			return
 		}
+		if (!document.getElementById('tAndC').checked) {
+			alert('Please agree to our Terms and Conditions!')
+			return
+		}
+		Axios.post('http://localhost:5000/signup', {
+			name: name,
+			mobile: mobile,
+			email: email,
+			password: password,
+		})
+			.then((res) => {
+				if (res.data.err) {
+					alert(res.data.err)
+				} else if (res.data.message) {
+					alert(res.data.message)
+				} else {
+					console.log(res.data)
+					setUserName(res.data[0].name)
+					setUserEmail(res.data[0].email)
+
+					nav('/')
+				}
+			})
+			.catch((err) => {
+				console.log(err)
+			})
 	}
 
 	const getUser = () => {
@@ -47,17 +59,18 @@ const Register = () => {
 			email: email,
 			password: password,
 		})
-			.then(res => {
+			.then((res) => {
 				if (res.data.message) {
-					alert(res.data.message)
+					console.log(res.data.message)
 				} else if (res.data.err) {
-					alert(res.data.err)
+					console.log(res.data.err)
 				} else {
 					setUserName(res.data[0].name)
+					setUserEmail(res.data[0].email)
 					nav('/')
 				}
 			})
-			.catch(err => {
+			.catch((err) => {
 				console.log(err)
 			})
 	}
@@ -89,7 +102,7 @@ const Register = () => {
 				<form
 					id='login'
 					className='input-group'
-					onSubmit={e => {
+					onSubmit={(e) => {
 						e.preventDefault()
 					}}
 				>
@@ -98,7 +111,7 @@ const Register = () => {
 						className='input-field'
 						placeholder='E-mail Id'
 						required
-						onChange={event => {
+						onChange={(event) => {
 							setEmail(event.target.value)
 						}}
 					/>
@@ -107,7 +120,7 @@ const Register = () => {
 						className='input-field'
 						placeholder='Enter Password'
 						required
-						onChange={event => {
+						onChange={(event) => {
 							setPassword(event.target.value)
 						}}
 					/>
@@ -119,7 +132,7 @@ const Register = () => {
 				<form
 					id='signup'
 					className='input-group'
-					onSubmit={e => {
+					onSubmit={(e) => {
 						e.preventDefault()
 					}}
 				>
@@ -128,7 +141,7 @@ const Register = () => {
 						className='input-field'
 						placeholder='Name'
 						required
-						onChange={event => {
+						onChange={(event) => {
 							setName(event.target.value)
 						}}
 					/>
@@ -137,7 +150,7 @@ const Register = () => {
 						className='input-field'
 						placeholder='Phone Number'
 						required
-						onChange={event => {
+						onChange={(event) => {
 							setMobile(event.target.value)
 						}}
 					/>
@@ -146,7 +159,7 @@ const Register = () => {
 						className='input-field'
 						placeholder='E-mail Id'
 						required
-						onChange={event => {
+						onChange={(event) => {
 							setEmail(event.target.value)
 						}}
 					/>
@@ -155,7 +168,7 @@ const Register = () => {
 						className='input-field'
 						placeholder='Enter Password'
 						required
-						onChange={event => {
+						onChange={(event) => {
 							setPassword(event.target.value)
 						}}
 					/>
@@ -164,11 +177,11 @@ const Register = () => {
 						className='input-field'
 						placeholder='Re-Enter Password'
 						required
-						onChange={event => {
+						onChange={(event) => {
 							setRePassword(event.target.value)
 						}}
 					/>
-					<input type='checkbox' className='check-box' />
+					<input id='tAndC' type='checkbox' className='check-box' />
 					<span>I agree to the Terms and Conditions</span>
 					<button type='Submit' className='submit-btn' onClick={postUser}>
 						Sign Up
