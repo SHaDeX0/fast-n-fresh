@@ -8,53 +8,67 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded'
 
 const Menu = () => {
-  const [foodItems, setFoodItems] = useState(null)
+	const [foodItems, setFoodItems] = useState(null)
 
-  const getFoodItems = async () => {
-    await Axios.get('http://localhost:5000/menu')
-      .then(res => {
-        setFoodItems(res.data)
-      })
-      .catch(err => console.log(err))
-  }
+	const getFoodItems = async () => {
+		await Axios.get('http://localhost:5000/menu')
+			.then(res => {
+				setFoodItems(res.data)
+			})
+			.catch(err => console.log(err))
+	}
 
-  useEffect(() => {
-    getFoodItems()
-  }, [])
+	useEffect(() => {
+		getFoodItems()
+	}, [])
 
-  return (
-    <>
-      <Box position='sticky' sx={{ justifyContent: 'center', alignItems: 'center', p: 2 }}>
-        <AppBar position='sticky' sx={{ backgroundColor: 'orange', maxHeight: '7vh', maxWidth: '98%', justifyContent: 'center', marginLeft: '1%', marginTop: '0.5vh', margin: '0.5 vh' }}>
-          <Toolbar>
-            <Typography variant='h6' noWrap component='div' sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
-              OUR MENU
-            </Typography>
-            <IconButton>
-              <ShoppingCartIcon />
-            </IconButton>
-            <IconButton>
-              <AccountCircleRoundedIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-      </Box>
-      <Grid container>
-        {foodItems ? (
-          foodItems.map(item => (
-            <Grid item xs={3} key={item.id}>
-              <CustomCard id={item.id} image={item.image} name={item.name} />
-              <br />
-            </Grid>
-          ))
-        ) : (
-          <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '100vh', width: '100vw' }}>
-            <CircularProgress style={{ justifyContent: 'center', position: 'fixed', top: '50%' }} size={100} />
-          </div>
-        )}
-      </Grid>
-    </>
-  )
+	return (
+		<>
+			<Box position='sticky' sx={{ justifyContent: 'center', alignItems: 'center', p: 2 }}>
+				<AppBar
+					position='sticky'
+					sx={{
+						backgroundColor: 'orange',
+						maxHeight: '7vh',
+						maxWidth: '98%',
+						justifyContent: 'center',
+						marginLeft: '1%',
+						marginTop: '0.5vh',
+						margin: '0.5 vh',
+					}}
+				>
+					<Toolbar>
+						<Typography variant='h6' noWrap component='div' sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
+							OUR MENU
+						</Typography>
+						<IconButton>
+							<ShoppingCartIcon />
+						</IconButton>
+						<IconButton>
+							<AccountCircleRoundedIcon />
+						</IconButton>
+					</Toolbar>
+				</AppBar>
+			</Box>
+
+			<Grid container sx={{ maxWidth: '98%', marginLeft: '1%' }}>
+				{foodItems ? (
+					foodItems.map(item => (
+						<Grid item xs={12} sm={6} md={4} lg={3} key={item.id} sx={{ minHeight: 180, minWidth: 300 }}>
+							<CustomCard id={item.id} image={item.image} name={item.name} desc={item.description} />
+							<br />
+						</Grid>
+					))
+				) : (
+					<div
+						style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '100vh', width: '100vw' }}
+					>
+						<CircularProgress style={{ justifyContent: 'center', position: 'fixed', top: '50%' }} size={100} />
+					</div>
+				)}
+			</Grid>
+		</>
+	)
 }
 
 export default Menu

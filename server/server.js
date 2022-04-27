@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const mysql = require('mysql')
 const cors = require('cors')
+const images = require('./images.js')
 
 app.use(cors())
 app.use(express.json())
@@ -71,6 +72,10 @@ app.get('/aboutus', (req, res) => {
 			res.send(result)
 		}
 	})
+})
+
+app.get('/gallery', (req, res) => {
+	res.send(images)
 })
 
 app.listen(5000, () => {

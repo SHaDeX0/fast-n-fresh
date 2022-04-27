@@ -1,4 +1,6 @@
 {
 	"editor.autoSurround": "languageDefined",
-	"prettier.arrowParens": "avoid"
+	"prettier.arrowParens": "avoid",
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false
 }
