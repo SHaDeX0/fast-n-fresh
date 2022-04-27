@@ -8,17 +8,12 @@ import InfoIcon from '@mui/icons-material/Info'
 const ShowImages = props => {
 	return (
 		<ImageList sx={{ width: 500, height: 450 }}>
-			<ImageListItem key={props.img}>
-				<img
-					src={`${props.img}?w=248&fit=crop&auto=format`}
-					srcSet={`${props.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-					alt={props.title}
-					loading='lazy'
-				/>
+			<ImageListItem>
+				<img src={props.img} srcSet={props.img} alt={props.title} loading='lazy' />
 				<ImageListItemBar
 					title={props.title}
 					actionIcon={
-						<IconButton sx={{ color: 'rgba(255, 255, 255, 0.54)' }} aria-label={`info about ${props.title}`}>
+						<IconButton sx={{ color: 'rgba(255, 255, 255, 0.54)' }}>
 							<InfoIcon />
 						</IconButton>
 					}
@@ -40,17 +35,18 @@ const Gallery = () => {
 	}
 
 	useEffect(() => {
-		// getImages()
+		getImages()
 	}, [])
 
 	return (
 		<Grid container>
 			{images ? (
-				images.map(item => (
-					<Grid item>
-						<ShowImages img={item.image} title={item.title} />
+				(console.log(images),
+				images.map(image => (
+					<Grid item key={image.id}>
+						<ShowImages img={image.images} title={image.title} />
 					</Grid>
-				))
+				)))
 			) : (
 				<h1>Loading...</h1>
 			)}

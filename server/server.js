@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const mysql = require('mysql')
 const cors = require('cors')
-const images = require('./images.js')
+const images = require('./images.json')
 
 app.use(cors())
 app.use(express.json())
