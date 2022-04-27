@@ -1,7 +1,7 @@
 import './App.css'
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Home from './Home'
+import Home from './Pages/Home/Home'
 import About from './Pages/About/About'
 import Gallery from './Pages/Gallery'
 import Menu from './Pages/Menu/Menu'

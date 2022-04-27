@@ -1,0 +1,4 @@
+{
+	"editor.autoSurround": "languageDefined",
+	"prettier.arrowParens": "avoid"
+}
