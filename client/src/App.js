@@ -6,7 +6,9 @@ import About from './Pages/About/About'
 import Gallery from './Pages/Gallery/Gallery'
 import Menu from './Pages/Menu/Menu'
 import Register from './Pages/Register/Register'
+
 import { UserContext } from './UserContext'
+import TermsAndConditions from './Pages/TermsAndConditions/TermsAndConditions'
 
 const App = () => {
 	const [userName, setUserName] = useState('')
@@ -37,7 +39,7 @@ const App = () => {
 					<Route path='menu' element={<Menu />} />
 					<Route path='signup' element={<Register load='signup' />} />
 					<Route path='login' element={<Register load='login' />} />
-					{/*TODO: Terms and Conditions*/}
+					<Route path='tandc' element={<TermsAndConditions />} />
 				</Routes>
 			</UserContext.Provider>
 		</Router>

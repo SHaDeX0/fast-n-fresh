@@ -2,7 +2,7 @@ import { React, useContext, useEffect, useState } from 'react'
 import './Register.css'
 import Axios from 'axios'
 import { UserContext } from '../../UserContext'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Register = (props) => {
 	const { setUserName, setUserEmail } = useContext(UserContext)
@@ -124,7 +124,7 @@ const Register = (props) => {
 							setPassword(event.target.value)
 						}}
 					/>
-					<button type='Submit' className='submit-btn' onClick={getUser}>
+					<button style={{ marginTop: '2.5vh' }} type='Submit' className='submit-btn' onClick={getUser}>
 						Log In
 					</button>
 				</form>
@@ -182,7 +182,12 @@ const Register = (props) => {
 						}}
 					/>
 					<input id='tAndC' type='checkbox' className='check-box' />
-					<span>I agree to the Terms and Conditions</span>
+					<span>
+						I agree to the
+						<Link to='/tandc' style={{ color: 'GrayText' }}>
+							Terms and Conditions
+						</Link>
+					</span>
 					<button type='Submit' className='submit-btn' onClick={postUser}>
 						Sign Up
 					</button>
