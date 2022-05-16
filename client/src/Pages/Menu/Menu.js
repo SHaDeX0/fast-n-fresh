@@ -9,6 +9,11 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded'
 
 const Menu = () => {
 	const [foodItems, setFoodItems] = useState(null)
+	const [cart, setCart] = useState([])
+
+	const handleClick = item => {
+		setCart([...cart, item], console.log(cart))
+	}
 
 	const getFoodItems = async () => {
 		await Axios.get('http://localhost:5000/menu')
@@ -55,7 +60,14 @@ const Menu = () => {
 				{foodItems ? (
 					foodItems.map(item => (
 						<Grid item xs={12} sm={6} md={4} lg={3} key={item.id} sx={{ minHeight: 180, minWidth: 300 }}>
-							<CustomCard id={item.id} image={item.image} name={item.name} desc={item.description} />
+							<CustomCard
+								id={item.id}
+								image={item.image}
+								name={item.name}
+								desc={item.description}
+								item={item}
+								handleClick={handleClick}
+							/>
 							<br />
 						</Grid>
 					))

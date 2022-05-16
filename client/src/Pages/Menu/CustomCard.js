@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Card, CardMedia, CardContent, CardActions, Typography, Button } from '@mui/material'
 import GroupedButtons from './GroupedButtons'
+
 const CustomCard = props => {
 	const [elevation, setElevation] = useState(3)
+
 	return (
 		<Card
 			variation='elevation'
@@ -24,7 +26,14 @@ const CustomCard = props => {
 
 			<CardActions>
 				<GroupedButtons />
-				<Button sx={{ m: 2 }} size='small' variant='contained' color='success' disableElevation>
+				<Button
+					sx={{ m: 2 }}
+					size='small'
+					variant='contained'
+					color='success'
+					disableElevation
+					onClick={() => props.handleClick(props.item)}
+				>
 					Add to cart
 				</Button>
 			</CardActions>
