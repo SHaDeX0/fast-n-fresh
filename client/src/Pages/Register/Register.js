@@ -4,7 +4,7 @@ import Axios from 'axios'
 import { UserContext } from '../../UserContext'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Register = (props) => {
+const Register = props => {
 	const { setUserName, setUserEmail } = useContext(UserContext)
 
 	const nav = useNavigate()
@@ -36,7 +36,7 @@ const Register = (props) => {
 			email: email,
 			password: password,
 		})
-			.then((res) => {
+			.then(res => {
 				if (res.data.err) {
 					alert(res.data.err)
 				} else if (res.data.message) {
@@ -49,8 +49,8 @@ const Register = (props) => {
 					nav('/')
 				}
 			})
-			.catch((err) => {
-				console.log(err)
+			.catch(err => {
+				alert(err)
 			})
 	}
 
@@ -59,19 +59,19 @@ const Register = (props) => {
 			email: email,
 			password: password,
 		})
-			.then((res) => {
+			.then(res => {
 				if (res.data.message) {
-					console.log(res.data.message)
+					alert(res.data.message)
 				} else if (res.data.err) {
-					console.log(res.data.err)
+					alert(res.data.err)
 				} else {
 					setUserName(res.data[0].name)
 					setUserEmail(res.data[0].email)
 					nav('/')
 				}
 			})
-			.catch((err) => {
-				console.log(err)
+			.catch(err => {
+				alert(err)
 			})
 	}
 
@@ -102,7 +102,7 @@ const Register = (props) => {
 				<form
 					id='login'
 					className='input-group'
-					onSubmit={(e) => {
+					onSubmit={e => {
 						e.preventDefault()
 					}}
 				>
@@ -111,7 +111,7 @@ const Register = (props) => {
 						className='input-field'
 						placeholder='E-mail Id'
 						required
-						onChange={(event) => {
+						onChange={event => {
 							setEmail(event.target.value)
 						}}
 					/>
@@ -120,7 +120,7 @@ const Register = (props) => {
 						className='input-field'
 						placeholder='Enter Password'
 						required
-						onChange={(event) => {
+						onChange={event => {
 							setPassword(event.target.value)
 						}}
 					/>
@@ -132,7 +132,7 @@ const Register = (props) => {
 				<form
 					id='signup'
 					className='input-group'
-					onSubmit={(e) => {
+					onSubmit={e => {
 						e.preventDefault()
 					}}
 				>
@@ -141,7 +141,7 @@ const Register = (props) => {
 						className='input-field'
 						placeholder='Name'
 						required
-						onChange={(event) => {
+						onChange={event => {
 							setName(event.target.value)
 						}}
 					/>
@@ -150,7 +150,7 @@ const Register = (props) => {
 						className='input-field'
 						placeholder='Phone Number'
 						required
-						onChange={(event) => {
+						onChange={event => {
 							setMobile(event.target.value)
 						}}
 					/>
@@ -159,7 +159,7 @@ const Register = (props) => {
 						className='input-field'
 						placeholder='E-mail Id'
 						required
-						onChange={(event) => {
+						onChange={event => {
 							setEmail(event.target.value)
 						}}
 					/>
@@ -168,7 +168,7 @@ const Register = (props) => {
 						className='input-field'
 						placeholder='Enter Password'
 						required
-						onChange={(event) => {
+						onChange={event => {
 							setPassword(event.target.value)
 						}}
 					/>
@@ -177,14 +177,14 @@ const Register = (props) => {
 						className='input-field'
 						placeholder='Re-Enter Password'
 						required
-						onChange={(event) => {
+						onChange={event => {
 							setRePassword(event.target.value)
 						}}
 					/>
 					<input id='tAndC' type='checkbox' className='check-box' />
 					<span>
 						I agree to the
-						<Link to='/tandc' style={{ color: 'GrayText' }}>
+						<Link target='_blank' to='/tandc' style={{ color: 'GrayText' }}>
 							Terms and Conditions
 						</Link>
 					</span>

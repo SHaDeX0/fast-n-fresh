@@ -59,14 +59,16 @@ ul li:hover > ul {
 }
 
 .title {
+	color: #000;
 	position: relative;
 	top: 40%;
-	left: 65%;
+	left: 50%;
+	max-width: 75%;
 	transform: translate(-50%, -50%);
-}
-.title h1 {
-	color: #000;
-	font-size: 4.375em;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	background-color: red;
 }
 .button {
 	position: absolute;

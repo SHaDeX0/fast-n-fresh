@@ -63,7 +63,7 @@ const Home = () => {
 					</ul>
 				</div>
 				<div className='title'>
-					<h1>FAST 'N FRESH</h1>
+					<h1 style={{ fontSize: '4.375em' }}>FAST 'N FRESH</h1>
 				</div>
 				<button className='button' onClick={() => linkToMenu()}>
 					ORDER NOW

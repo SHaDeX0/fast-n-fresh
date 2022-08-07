@@ -19,7 +19,7 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import GitHubIcon from '@mui/icons-material/GitHub'
 
-const PeopleCard = (props) => {
+const PeopleCard = props => {
 	const [elevation, setElevation] = useState(3)
 
 	return (
@@ -99,9 +99,8 @@ const About = () => {
 		await Axios.get('http://localhost:5000/aboutus')
 			.then(({ data }) => {
 				setDevs(data)
-				console.log(data)
 			})
-			.catch((err) => console.log(err))
+			.catch(err => console.log(err))
 	}
 
 	useEffect(() => {
@@ -145,7 +144,7 @@ const About = () => {
 							columnGap={5}
 							rowGap={5}
 						>
-							{devs.map((item) => (
+							{devs.map(item => (
 								<Grid item container justifyContent='center' xs={3} key={item.id} sx={{ minWidth: 300 }}>
 									<PeopleCard
 										image={item.image}
@@ -165,7 +164,10 @@ const About = () => {
 				<div
 					style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '100vh', width: '100vw' }}
 				>
-					<CircularProgress style={{ justifyContent: 'center', position: 'fixed', top: '50%' }} size={100} />
+					<CircularProgress
+						style={{ color: 'tomato', justifyContent: 'center', position: 'fixed', top: '50%' }}
+						size={100}
+					/>
 				</div>
 			)}
 		</>

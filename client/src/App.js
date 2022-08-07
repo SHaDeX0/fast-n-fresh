@@ -24,11 +24,6 @@ const App = () => {
 		window.localStorage.setItem('userEmail', userEmail)
 	}, [userName, userEmail])
 
-	useEffect(() => {
-		console.log(userName)
-		console.log(userEmail)
-	})
-
 	return (
 		<Router>
 			<UserContext.Provider value={{ userName, setUserName, userEmail, setUserEmail }}>

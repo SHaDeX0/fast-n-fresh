@@ -75,7 +75,10 @@ const Menu = () => {
 					<div
 						style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '100vh', width: '100vw' }}
 					>
-						<CircularProgress style={{ justifyContent: 'center', position: 'fixed', top: '50%' }} size={100} />
+						<CircularProgress
+							style={{ color: 'tomato', justifyContent: 'center', position: 'fixed', top: '50%' }}
+							size={100}
+						/>
 					</div>
 				)}
 			</Grid>
