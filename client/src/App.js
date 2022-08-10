@@ -6,9 +6,17 @@ import About from './Pages/About/About'
 import Gallery from './Pages/Gallery/Gallery'
 import Menu from './Pages/Menu/Menu'
 import Register from './Pages/Register/Register'
+import Cart from './Pages/Cart/Cart'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 import { UserContext } from './UserContext'
 import TermsAndConditions from './Pages/TermsAndConditions/TermsAndConditions'
+
+const darkTheme = createTheme({
+	palette: {
+		mode: 'dark',
+	},
+})
 
 const App = () => {
 	const [userName, setUserName] = useState('')
@@ -35,6 +43,7 @@ const App = () => {
 					<Route path='signup' element={<Register load='signup' />} />
 					<Route path='login' element={<Register load='login' />} />
 					<Route path='tandc' element={<TermsAndConditions />} />
+					<Route path='cart' element={<Cart />} />
 				</Routes>
 			</UserContext.Provider>
 		</Router>

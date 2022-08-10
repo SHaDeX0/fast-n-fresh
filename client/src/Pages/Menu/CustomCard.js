@@ -18,10 +18,8 @@ const CustomCard = props => {
 			<CardContent>
 				<Typography gutterBottom variant='h5' component='div'>
 					{props.name}
+					{/* <Typography component='div'>{props.desc}</Typography> */}
 				</Typography>
-				{/* <Typography variant='h6' component='div'>
-					{props.desc}
-				</Typography> */}
 			</CardContent>
 
 			<CardActions>

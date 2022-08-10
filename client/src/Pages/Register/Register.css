@@ -1,4 +1,4 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
@@ -10,6 +10,7 @@
 	background-position: center;
 	background-size: cover;
 	position: absolute;
+	background-image: url('Register.jpg');
 }
 
 .form-box {
@@ -17,14 +18,15 @@
 	height: 29.125em;
 	position: relative;
 	margin: 10% auto;
-	background:rgba(226, 199, 199, 0.808);
+	background: rgba(222, 213, 213, 0.808);
 	padding: 0.625em;
 	overflow: hidden;
 	border-radius: 0.625em;
+	transition: 0.6s ease;
 }
 
 .form-box:hover {
-	box-shadow: 0.65em 0.35em 0.75em 0.15em #958f8c;
+	box-shadow: 0.45em 0.5em 0.75em 0.15em #3e2d2d;
 }
 
 .button-box {

@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AppBar, CircularProgress, Grid, IconButton, Typography } from '@mui/material'
 import CustomCard from './CustomCard'
 import Box from '@mui/material/Box'
@@ -46,9 +47,11 @@ const Menu = () => {
 						<Typography variant='h6' noWrap component='div' sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
 							OUR MENU
 						</Typography>
-						<IconButton>
-							<ShoppingCartIcon />
-						</IconButton>
+						<Link to='/cart'>
+							<IconButton>
+								<ShoppingCartIcon />
+							</IconButton>
+						</Link>
 						<IconButton>
 							<AccountCircleRoundedIcon />
 						</IconButton>
@@ -56,7 +59,7 @@ const Menu = () => {
 				</AppBar>
 			</Box>
 
-			<Grid container sx={{ maxWidth: '98%', marginLeft: '1%' }}>
+			<Grid container sx={{ maxWidth: '98%', marginLeft: '3%' }}>
 				{foodItems ? (
 					foodItems.map(item => (
 						<Grid item xs={12} sm={6} md={4} lg={3} key={item.id} sx={{ minHeight: 180, minWidth: 300 }}>
