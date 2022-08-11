@@ -9,7 +9,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded'
 
 const Menu = () => {
-	const [foodItems, setFoodItems] = useState(null)
+	const [foodItems, setFoodItems] = useState([])
 	const [cart, setCart] = useState([])
 
 	const handleClick = item => {
