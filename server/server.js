@@ -16,8 +16,7 @@ const db = mysql.createConnection({
 })
 
 app.post('/getUser', (req, res) => {
-	const email = req.body.email
-	const password = req.body.password
+	const { email, password } = req.body
 
 	db.query(`SELECT * FROM users WHERE email = ? AND password = ?`, [email, password], (err, result) => {
 		if (err) {
@@ -31,10 +30,7 @@ app.post('/getUser', (req, res) => {
 })
 
 app.post('/signup', (req, res) => {
-	const name = req.body.name
-	const mobile = req.body.mobile
-	const email = req.body.email
-	const password = req.body.password
+	const { name, mobile, email, password } = req.body
 
 	db.query(
 		'INSERT INTO users(email, password, name, mobile) VALUES (?, ?, ?, ?)',
@@ -55,7 +51,7 @@ app.post('/signup', (req, res) => {
 			} else {
 				res.send({ message: 'User already exists!' })
 			}
-		}
+		},
 	)
 })
 
