@@ -78,7 +78,7 @@ const PeopleCard = props => {
 					</a>
 					<a
 						href={`mailto:${props.email}?subject=Fast%20'N%20Fresh&body=`.concat(
-							encodeURI(`Hello ${props.name}, I reached here from your Fast 'N Fresh website.`)
+							encodeURI(`Hello ${props.name}, I reached here from your Fast 'N Fresh website.`),
 						)}
 						rel='noreferrer'
 						target='_blank'
@@ -164,9 +164,9 @@ const About = () => {
 			) : (
 				<div
 					style={{ alignItems: 'center', display: 'flex', justifyContent: 'center', height: '100vh', width: '100vw' }}
+					size={100}
 				>
-						size={100}
-					/>
+					<CircularProgress />
 				</div>
 			)}
 		</>

@@ -1,23 +1,36 @@
 import { Button, ButtonGroup } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+
+import { Context } from '../../Context'
 
 const GroupedButtons = () => {
-  const [counter, setCounter] = useState(0)
-  const displayCounter = counter > 0
+	const { itemQty, setItemQty } = useContext(Context)
 
-  return (
-    <ButtonGroup size='small' disableElevation variant='contained' style={{ backgroundColor: '#FBF3E4' }}>
-      <Button style={{ backgroundColor: '#FFD36E' }} onClick={() => setCounter(counter + 1)}>
-        +
-      </Button>
-      {displayCounter && <Button disabled>{counter}</Button>}
-      {displayCounter && (
-        <Button style={{ backgroundColor: '#FFD36E' }} onClick={() => setCounter(counter - 1)}>
-          -
-        </Button>
-      )}
-    </ButtonGroup>
-  )
+	const [counter, setCounter] = useState(0)
+	const displayCounter = counter > 0
+
+	useEffect(() => {
+		setItemQty(counter)
+		console.log('items: ' + itemQty)
+	}, [counter, itemQty, setItemQty])
+
+	return (
+		<ButtonGroup size='small' disableElevation variant='contained' style={{ backgroundColor: '#FBF3E4' }}>
+			<Button style={{ backgroundColor: '#FFD36E' }} onClick={() => setCounter(counter + 1)}>
+				+
+			</Button>
+			{displayCounter ? (
+				<>
+					<Button disabled>{counter}</Button>
+					<Button style={{ backgroundColor: '#FFD36E' }} onClick={() => setCounter(counter - 1)}>
+						-
+					</Button>
+				</>
+			) : (
+				<></>
+			)}
+		</ButtonGroup>
+	)
 }
 
 export default GroupedButtons

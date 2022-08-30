@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import { Card, CardMedia, CardContent, CardActions, Typography, Button } from '@mui/material'
 import GroupedButtons from './GroupedButtons'
+import axios from 'axios'
 
 const CustomCard = props => {
 	const [elevation, setElevation] = useState(3)
+
+	const handleClick = (id, qty) => {
+		axios.post('/cart', { id, qty })
+	}
 
 	return (
 		<Card
@@ -30,7 +35,7 @@ const CustomCard = props => {
 					variant='contained'
 					color='success'
 					disableElevation
-					onClick={() => props.handleClick(props.item)}
+					onClick={() => handleClick(props.id)}
 				>
 					Add to cart
 				</Button>

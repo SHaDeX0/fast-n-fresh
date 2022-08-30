@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { UserContext } from '../../UserContext'
+import { Context } from '../../Context'
 import HomeIcon from '@mui/icons-material/Home'
 import './Home.css'
 
 const Home = () => {
-	const { userName, setUserName } = useContext(UserContext)
+	const { userName, setUserName } = useContext(Context)
 	let navigate = useNavigate()
 
 	const logout = () => {

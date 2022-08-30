@@ -1,11 +1,11 @@
 import { React, useContext, useEffect, useState } from 'react'
 import './Register.css'
 import Axios from 'axios'
-import { UserContext } from '../../UserContext'
+import { Context } from '../../Context'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Register = props => {
-	const { setUserName, setUserEmail } = useContext(UserContext)
+	const { setUserName, setUserEmail } = useContext(Context)
 
 	const nav = useNavigate()
 
