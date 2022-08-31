@@ -22,8 +22,9 @@ const App = () => {
 	const [userName, setUserName] = useState('')
 	const [userEmail, setUserEmail] = useState('')
 
-	const [itemId, setItemId] = useState('')
 	const [itemQty, setItemQty] = useState('')
+	const [menuItems, setMenuItems] = useState([])
+	const [items, setItems] = useState([])
 
 	useEffect(() => {
 		setUserName(window.localStorage.getItem('userName'))
@@ -38,7 +39,18 @@ const App = () => {
 	return (
 		<Router>
 			<Context.Provider
-				value={{ userName, setUserName, userEmail, setUserEmail, itemId, setItemId, itemQty, setItemQty }}
+				value={{
+					userName,
+					setUserName,
+					userEmail,
+					setUserEmail,
+					itemQty,
+					setItemQty,
+					menuItems,
+					setMenuItems,
+					items,
+					setItems,
+				}}
 			>
 				<Routes>
 					<Route path='/' element={<Home />} />

@@ -1,5 +1,5 @@
 import Axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { AppBar, CircularProgress, Grid, IconButton, Typography } from '@mui/material'
 import CustomCard from './CustomCard'
@@ -7,21 +7,19 @@ import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded'
+import { Context } from '../../Context'
 
 const Menu = () => {
-	const [foodItems, setFoodItems] = useState([])
-
-	const getFoodItems = async () => {
-		await Axios.get('http://localhost:5000/menu')
-			.then(res => {
-				setFoodItems(res.data)
-			})
-			.catch(err => console.log(err))
-	}
+	const { menuItems, setMenuItems } = useContext(Context)
 
 	useEffect(() => {
+		const getFoodItems = async () => {
+			await Axios.get('http://localhost:5000/menu')
+				.then(res => setMenuItems(res.data))
+				.catch(err => console.log(err))
+		}
 		getFoodItems()
-	}, [])
+	}, [setMenuItems])
 
 	return (
 		<>
@@ -55,8 +53,8 @@ const Menu = () => {
 			</Box>
 
 			<Grid container sx={{ maxWidth: '98%', marginLeft: '3%' }}>
-				{foodItems ? (
-					foodItems.map(item => (
+				{menuItems ? (
+					menuItems.map(item => (
 						<Grid item xs={12} sm={6} md={4} lg={3} key={item.id} sx={{ minHeight: 180, minWidth: 300 }}>
 							<CustomCard id={item.id} image={item.image} name={item.name} desc={item.description} item={item} />
 							<br />

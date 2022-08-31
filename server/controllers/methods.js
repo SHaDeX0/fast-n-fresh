@@ -61,10 +61,30 @@ export const aboutUs = (req, res) => {
 }
 
 export const addToCart = (req, res) => {
-	const { item, email } = req.body
+	let { items, email } = req.body
+	items = JSON.stringify(items)
 
-	db.query(`INSERT INTO cart VALUES(?, ?)`, [email, item], (err, result) => {
-		if (err) res.json({ err: err })
-		else res.json(result)
+	db.query(`INSERT INTO cart VALUES(?, ?)`, [email, items], (err, result) => {
+		if (!err) {
+			res.json(result)
+			return
+		}
+
+		db.query(`UPDATE cart SET items = ? WHERE email = ?`, [items, email], (err, result) => {
+			if (err) res.json({ err: err })
+			else res.send(result)
+		})
+	})
+}
+
+export const getCart = (req, res) => {
+	const { email } = req.body
+
+	db.query(`SELECT * FROM cart WHERE email = ?`, [email], (err, result) => {
+		if (err) {
+			res.send({ err: err })
+		} else {
+			res.send(result)
+		}
 	})
 }
