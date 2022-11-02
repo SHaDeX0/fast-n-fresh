@@ -1,4 +1,4 @@
 # fast-n-fresh
 
-A web app with user friendly UI design to order food, after login and view cart for checkout
+A web app with user friendly UI design where you can login then browse through all available food products, add desired products to cart and view cart
 Developed using MySQL, Express, React, Node, AWS, Material UI
