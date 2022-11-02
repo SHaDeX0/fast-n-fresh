@@ -10,16 +10,25 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded'
 import { Context } from '../../Context'
 
 const Menu = () => {
-	const { menuItems, setMenuItems } = useContext(Context)
+	const { menuItems, setMenuItems, userEmail, items } = useContext(Context)
 
 	useEffect(() => {
-		const getFoodItems = async () => {
-			await Axios.get('http://localhost:5000/menu')
-				.then(res => setMenuItems(res.data))
-				.catch(err => console.log(err))
-		}
-		getFoodItems()
+		Axios.get('http://localhost:5000/menu')
+			.then(res => setMenuItems(res.data))
+			.catch(err => console.log(err))
 	}, [setMenuItems])
+
+	useEffect(() => {
+		Axios.post('http://localhost:5000/cart', { email: userEmail, items: items })
+			.then(res => {
+				if (res.data.err) console.log(res.data.err)
+				else {
+					console.log(items)
+					console.log('successfully added to cart')
+				}
+			})
+			.catch(err => console.log(err))
+	}, [items, userEmail])
 
 	return (
 		<>

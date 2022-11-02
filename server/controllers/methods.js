@@ -36,7 +36,7 @@ export const signup = (req, res) => {
 			} else {
 				res.send({ message: 'User already exists!' })
 			}
-		},
+		}
 	)
 }
 
@@ -77,14 +77,14 @@ export const addToCart = (req, res) => {
 	})
 }
 
-export const getCart = (req, res) => {
+export const getCart = async (req, res) => {
 	const { email } = req.body
 
-	db.query(`SELECT * FROM cart WHERE email = ?`, [email], (err, result) => {
+	await db.query(`SELECT * FROM cart WHERE email = ?`, [email], (err, result) => {
 		if (err) {
 			res.send({ err: err })
 		} else {
-			res.send(result)
+			res.send({ cart: result[0] })
 		}
 	})
 }

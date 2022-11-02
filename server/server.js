@@ -18,7 +18,7 @@ app.get('/menu', menu)
 
 app.get('/aboutus', aboutUs)
 
-app.get('/gallery', async (req, res) => {
+app.get('/gallery', (req, res) => {
 	res.send(images)
 })
 
