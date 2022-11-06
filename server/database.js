@@ -1,11 +1,16 @@
 import mysql from 'mysql'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const db = mysql.createConnection({
-	user: 'admin',
-	password: 'Password',
-	database: 'fast_n_fresh',
-	host: 'fast-n-fresh.cfp2pum9jqtd.us-east-1.rds.amazonaws.com',
-	port: '3306',
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	database: process.env.DB_NAME,
+	host: process.env.DB_HOST,
+	port: process.env.DB_PORT,
 })
+
+console.log(process.env)
 
 export default db
